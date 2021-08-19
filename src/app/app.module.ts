@@ -3,14 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
+import { AccordionItemComponent } from './components/accordion/accordion-item/accordion-item.component';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccordionComponent,
+    AccordionItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CdkAccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
