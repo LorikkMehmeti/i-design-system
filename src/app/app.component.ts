@@ -11,7 +11,7 @@ export class AppComponent {
 
   animes: any = [
     {
-      name: 'Jujutsu Kaisen',
+      name: '',
       description: `Jujutsu Kaisen (呪術廻戦) is a Japanese manga series written and illustrated by Gege Akutami, serialized in Shueisha's Weekly Shōnen Jump since March 2018.`
     },
     {
