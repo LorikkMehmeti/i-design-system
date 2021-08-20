@@ -1,7 +1,7 @@
 <div class="i--accordion__item__header" data-accordion-size="m" [tabindex]="index" (click)="accordionItem.toggle()">
   <p class="i--accordion__item__header_title">{{title}}</p>
   <span class="example-accordion-item-description">
-    <svg-icon [src]="!accordionItem.expanded ? expandedIcon : collapsedIcon"
+    <svg-icon [name]="!accordionItem.expanded ? expandedIcon : collapsedIcon"
     [svgStyle]="{ 'transition': 'all 200ms ease','width.px':20, 'height.px': 20, 'stroke': 'currentColor', 'fill': 'currentColor', 'position': 'relative', 'z-index': 3 }"></svg-icon>
     <!-- Click to {{ accordionItem.expanded ? 'close' : 'open' }} -->
   </span>
