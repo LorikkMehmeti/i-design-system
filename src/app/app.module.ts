@@ -8,12 +8,14 @@ import { AccordionItemComponent } from './components/accordion/accordion-item/ac
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccordionComponent,
-    AccordionItemComponent
+    AccordionItemComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

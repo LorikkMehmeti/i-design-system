@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+    <ul class="i--breadcrumb_wrapper">
+        <li class="i--breadcrumb--item" *ngFor="let item of [0,1,2,3,4]; let i = index; let last = last;">
+            <a href="" class="i--breadcrumb--link">Lorik {{i}}</a>
+            <span class="i--breadcrumb--line" *ngIf="!last">{{marker}}</span>
+        </li>
+    </ul>
+</nav>
