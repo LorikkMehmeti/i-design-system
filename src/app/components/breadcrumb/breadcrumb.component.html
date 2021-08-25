@@ -1,8 +1,44 @@
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" *ngIf="breadcrumb" style="display: flex; justify-content: center;margin: 20px 0;">
+  <ng-container *ngIf="breadcrumb.length < 6; else menuDropdown">
     <ul class="i--breadcrumb_wrapper">
-        <li class="i--breadcrumb--item" *ngFor="let item of [0,1,2,3,4]; let i = index; let last = last;">
-            <a href="" class="i--breadcrumb--link">Lorik {{i}}</a>
-            <span class="i--breadcrumb--line" *ngIf="!last">{{marker}}</span>
-        </li>
+      <li class="i--breadcrumb--item" *ngFor="let item of breadcrumb; let i = index; let last = last;">
+        <a class="i--breadcrumb--link" [tippy]="'' + item?.name" placement="bottom" [onlyTextOverflow]="true"
+          [className]="['i--breadcrumb--tooltip']" [routerLink]="item.routerLink">{{item?.name}}</a>
+        <span class="i--breadcrumb--line" *ngIf="!last">{{marker}}</span>
+      </li>
     </ul>
+  </ng-container>
+  <ng-template #menuDropdown>
+    <ul class="i--breadcrumb_wrapper">
+      <button class="i--breadcrumb--button_menu" [dropdownTriggerFor]="dropdown">
+        <svg-icon [src]="MORE_ICON"
+          [svgStyle]="{ 'transition': 'all 200ms ease','width.px':20, 'height.px': 20, 'stroke': 'currentColor', 'fill': 'currentColor', 'position': 'relative', 'z-index': 3 }">
+        </svg-icon>
+        <!-- <li class="i--breadcrumb--item" *ngFor="let item of breadcrumb | slice: 0: 3; let i = index;"> -->
+        <!-- <a class="i--breadcrumb--link" [routerLink]="item.routerLink">{{item?.name}}</a> -->
+        <!-- </li> -->
+      </button>
+
+      <li class="i--breadcrumb--item"
+        *ngFor="let item of breadcrumb | slice: SLICE_NUMBER: breadcrumb.length; let i = index; let last = last;">
+        <a class="i--breadcrumb--link" [routerLink]="item.routerLink" [tippy]="'' + item?.name" placement="bottom"
+          [onlyTextOverflow]="true" [className]="['i--breadcrumb--tooltip']">{{item?.name}}</a>
+        <ng-container *ngIf="!last">
+          <span class="i--breadcrumb--line" *ngIf="!useTemplate; else svgIcon">{{marker}}</span>
+          <ng-template #svgIcon>
+            <svg-icon [src]="ICON_CHEVRON"
+            class="ib--template-icon"
+              [svgStyle]="{ 'transition': 'all 200ms ease','width.px':20, 'height.px': 20, 'stroke': 'currentColor', 'fill': 'currentColor', 'position': 'relative', 'z-index': 3 }">
+            </svg-icon>
+          </ng-template>
+
+        </ng-container>
+      </li>
+    </ul>
+  </ng-template>
 </nav>
+
+<i-dropdown #dropdown>
+  <a class="dropdown-item" *ngFor="let item of (breadcrumb | slice: 0 : SLICE_NUMBER) | reverse;"
+    [routerLink]="item.routerLink">{{item?.name}}</a>
+</i-dropdown>

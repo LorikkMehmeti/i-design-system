@@ -54,7 +54,57 @@
     vertical-align: initial
     box-sizing: inherit
     white-space: nowrap
+    cursor: pointer
+    max-width: 150px
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
 
 .i--breadcrumb--line 
     color: var(--cds-text-01,#161616)
     margin-left: .5rem
+
+.i--breadcrumb--button_menu 
+    appearance: none
+    border: none
+    background: transparent
+    display: flex
+    align-items: center
+    justify-content: center
+    background: rgba(0,0,0, .07)
+    margin: 0 10px 0 0
+    border-radius: 6px
+    width: 40px
+    cursor: pointer
+    @media (hover) 
+        &:hover
+            background: rgba(0,0,0, .1)
+    
+    svg-icon 
+        line-height: .7
+    svg
+        line-height: 0
+
+
+// TODO fix this
+
+.dropdown-item 
+  display: block
+  padding: 0.5rem 1rem
+  font-family: inherit
+  font-size: 1.3rem
+  background-color: white
+  border: none
+  cursor: pointer
+  outline: none
+  text-decoration: none
+  font-variation-settings: 'wght' 500
+  font-weight: 500
+
+
+.dropdown-item:hover 
+  background-color: #f3f4f5
+
+.ib--template-icon 
+    line-height: .7

@@ -2,13 +2,14 @@
   <cdk-accordion class="i--accordion__wrapper i_ac4rdi0n" aria-label="accordion-wrapper" [multi]="false">
     <cdk-accordion-item *ngFor="let item of animes; let i = index;" #accordionItem="cdkAccordionItem"
       class="i--accordion__item__wrapper i--ac4rd10n-1t3m" role="button" [attr.id]="'accordion-body-for-' + item.name"
-          [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-for-' + item.name">
+      [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-for-' + item.name">
       <app-accordion [title]="item.name" [accordionItem]="accordionItem" [index]="i + 1">
-          <h1>Here's the description</h1>
-          <p>{{item.description}}</p>
+        <h1>Here's the description</h1>
+        <p>{{item.description}}</p>
       </app-accordion>
     </cdk-accordion-item>
   </cdk-accordion>
-  
-  <app-breadcrumb></app-breadcrumb>
+
+  <input type="checkbox" [checked]="iconTemplate" (change)="iconTemplate = !iconTemplate"> Use icon
+  <app-breadcrumb [breadcrumb]="breadcrumb" [useTemplate]="iconTemplate"></app-breadcrumb>
 </div>

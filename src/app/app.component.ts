@@ -1,4 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +12,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class AppComponent {
   title = 'i-design-system';
 
-  animes: any = [
-    {
+  iconTemplate: boolean = false;
+
+  animes: any = [{
       name: 'Jujutsu Kaisen',
       description: `Jujutsu Kaisen (呪術廻戦) is a Japanese manga series written and illustrated by Gege Akutami, serialized in Shueisha's Weekly Shōnen Jump since March 2018.`
     },
@@ -29,6 +33,32 @@ export class AppComponent {
 
   ];
 
+  breadcrumb = [{
+    "name": "Home",
+    "routerLink": "home"
+  }, {
+    "name": "Top Animes Of All Time",
+    "routerLink": "top-animes"
+  }, {
+    "name": "Attack On Titan",
+    "routerLink": "attack-on-titan"
+  }, {
+    "name": "Attack On Titan - Season 3",
+    "routerLink": "attack-on-titan-season-3"
+  }, {
+    "name": "Episodes",
+    "routerLink": "episodes"
+  }, {
+    "name": "Episode List",
+    "routerLink": "episode-list"
+  }, {
+    "name": "Episode 12: Night of the Battle to Retake the Wall",
+    "routerLink": "night-27348293"
+  }, {
+    "name": "LEVI ACKERMAN",
+    "routerLink": "levi-ackerman"
+  }];
+
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -36,12 +66,13 @@ export class AppComponent {
     //Add 'implements AfterViewInit' to the class.
     this.animes.forEach((anime: any) => {
       anime.uuid = this.uuidv4();
-    }); 
+    });
   }
 
   uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0,
+        v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
   }

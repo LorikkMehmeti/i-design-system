@@ -1,3 +1,8 @@
+
+export const TOOLTIP_VARIATION = {
+    animation: 'fade'
+};
+
 export const ICONS = {
     CHEVRON_DOWN: {
         name: `Chevron Down`,
@@ -8,5 +13,17 @@ export const ICONS = {
         name: `Chevron Up`,
         description: 'Used for accordions',
         path: `chevron-up.svg`
-    }
+    },
+    CHEVRONS: {
+        right: {
+            name: `Chevron Up`,
+            description: 'Used for accordions',
+            path: `chevron-right.svg`
+        }
+    },
+    MORE: {
+        name: `More`,
+        description: 'Used for accordions',
+        path: `more.svg`
+    },
 };
